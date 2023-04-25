@@ -36,6 +36,20 @@ int main(void)
 
 //Put code in here
 
+// setup for motordriver
+
+// start/stop the motor
+
+// speed control (different settings) - maybe timers??
+
+// setup for sensor
+
+// LCD sensor
+
+// safety switch to stop motor with sensor (interrupts)
+
+// setup remote controller - wireless
+
 }
 
 //Put in function implementations here
