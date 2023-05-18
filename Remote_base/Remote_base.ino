@@ -13,7 +13,7 @@
 #define button_9 9 
 #define button_0 25
 #define button_star 22 
-#define button_tag 30 
+#define button_tag 13 
 #define button_ok 28 
 #define button_up 24
 #define button_right 90
