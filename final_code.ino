@@ -11,7 +11,7 @@
 #define button_3 71
 #define button_4 68
 #define button_5 64
-#define button_6 67
+#define button_6 67 //in cases for button 6-9 motors make only 1 step in loop to achieve "smooth" movement
 #define button_7 7
 #define button_8 21
 #define button_9 9
@@ -120,6 +120,7 @@ void loop() {
         break; //so the code won't be stuck inside of the case
       }
       case button_6: {
+        delay(1);
         while((hc.dist(0) > 4.5) || (hc.dist(1) > 3)){//if condition checks distance from the sensors so the slider won't fall off 
             myStepper1.step(1); //lower motor goes forward //it does exactly 2 rotations
             myStepper2.step(1); //upper motor goees forward
@@ -128,6 +129,7 @@ void loop() {
         break; //so the code won't be stuck inside of the case
       }
        case button_7: {
+         delay(1);
         while((hc.dist(0) > 4.5) || (hc.dist(1) < 32)){//if condition checks distance from the sensors so the slider won't fall off 
             myStepper1.step(1);  //lower motor goes forward //it does exactly 2 rotations
             myStepper2.step(-1); //upper motor goes back
@@ -135,6 +137,7 @@ void loop() {
         break; //so the code won't be stuck inside of the case
       }
        case button_8: {
+         delay(1);
         while((hc.dist(0) < 41) || (hc.dist(1) > 3)){// condition checks distance from the sensors so the slider won't fall off 
             myStepper1.step(-1); //lower motor goes back  //it does exactly 2 rotations
             myStepper2.step(1); //upper motor goes forward
@@ -142,6 +145,7 @@ void loop() {
         break; //so the code won't be stuck inside of the case
       }
        case button_9: {
+         delay(1);
         while((hc.dist(0) < 41) || (hc.dist(1) < 30)){// condition checks distance from the sensors so the slider won't fall off 
             myStepper1.step(-1); //lower motor goes back //it does exactly 2 rotations
             myStepper2.step(-1); //upper motor goes back
@@ -149,6 +153,7 @@ void loop() {
         break; //so the code won't be stuck inside of the case
       }
       case button_star: { //this button moves the slider forward and then to the right
+        delay(1);
         myStepper1.setSpeed(speed3);
         myStepper2.setSpeed(speed2); 
         while((hc.dist(0) > 5)){// condition checks distance from the sensors so the slider won't fall off   
@@ -162,6 +167,7 @@ void loop() {
         
       
       case button_tag: { //this button moves slider backward and then left
+        delay(1);
         myStepper1.setSpeed(speed3);
         myStepper2.setSpeed(speed2); 
         while((hc.dist(0)<41)){ // condition checks distance from the sensors so the slider won't fall off 
@@ -174,24 +180,28 @@ void loop() {
         break; //so the code won't be stuck inside of the case
       }
       case button_up: {
+        delay(1);
         while((hc.dist(0) > 5.5)){ // condition checks distance from the sensors so the slider won't fall off  
             myStepper1.step(stepsPerRevolution);  //it does exactly 2 rotations forward (lower motor)
         } return 0; //sending 0 to indicate loop was succesfully terminated
         break; //so the code won't be stuck inside of the case
       }
       case button_down: {
+        delay(1);
         while((hc.dist(0)<41)){//if condition checks distance from the sensors so the slider won't fall of
             myStepper1.step(-stepsPerRevolution);  //it does exactly 2 rotations back (lower motor)
         } return 0; //sending 0 to indicate loop was succesfully terminated
         break; //so the code won't be stuck inside of the case
       }
-      case button_right: {        
+      case button_right: {
+        delay(1);
         while((hc.dist(1) < 37)){ //if condition checks distance from the sensors so the slider won't fall of
             myStepper2.step(-stepsPerRevolution);  //it does exactly 2 rotations back (upper motor)
         }return 0; //sending 0 to indicate loop was succesfully terminated
         break; //so the code won't be stuck inside of the case
-      
-      
+        
+      case button_left: {
+        case button_right: {
         while((hc.dist(1)>4)){//if condition checks distance from the sensors so the slider won't fall of
             myStepper2.step(stepsPerRevolution);  //it does exactly 2 rotations forward (upper motor)
         } return 0; //sending 0 to indicate loop was succesfully terminated
